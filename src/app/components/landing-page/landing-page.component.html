@@ -12,7 +12,7 @@
         <mat-spinner></mat-spinner>
     </div>
     <div class="card-container" *ngIf="!showLoading">
-        <app-card *ngFor = "let pokemon of shownResults" [data] = pokemon>
+        <app-card *ngFor = "let pokemon of shownResults | search : search" [data] = pokemon>
         </app-card>
     </div>
 

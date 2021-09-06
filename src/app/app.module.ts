@@ -10,6 +10,7 @@ import { DetailsPageComponent } from './components/details-page/details-page.com
 import { DemoMaterialModule } from './material.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from '../app/components/landing-page/search.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     LandingPageComponent,
     CardComponent,
     DetailsPageComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
