@@ -1,4 +1,18 @@
-{{data.name}}
-{{data.abilities}}
-{{data.height}}
-{{data.weight}}
+<mat-card class="pokemon-card">
+    <mat-card-title>{{data.name | titlecase }}</mat-card-title>
+    <div class="img-container">
+        <img mat-card-xl-image [src]="data.sprites.other['official-artwork'].front_default" alt="Image of Pokemon">
+    </div>
+    <mat-card-content>
+        <div class="pokemon-info">
+            <b>Height:</b> {{ data.height }}
+            <b>Weight:</b> {{ data.weight }}
+        </div>
+        <div class="abilities">
+            <mat-chip-list aria-label="Abilities" >
+                <mat-chip *ngFor="let ability of data.abilities" color="primary" selected >{{ ability.ability.name | titlecase }}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </mat-card-content>
+</mat-card>
+

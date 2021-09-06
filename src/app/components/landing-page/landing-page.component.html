@@ -1,18 +1,17 @@
-<mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Search</mat-label>
-    <mat-icon matPrefix>search</mat-icon>
-    <input matInput type="text" [(ngModel)]="search">
-    <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
-    <mat-icon>close</mat-icon>
-    </button>
-</mat-form-field>
-
-<div>
+<div class="container">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Search</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" [(ngModel)]="search">
+        <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
+        <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
     
     <div *ngIf="showLoading"> 
         <mat-spinner></mat-spinner>
     </div>
-    <div *ngIf="!showLoading">
+    <div class="card-container" *ngIf="!showLoading">
         <app-card *ngFor = "let pokemon of shownResults" [data] = pokemon>
         </app-card>
     </div>
@@ -24,5 +23,6 @@
                 (page)="pageEvent = getData($event)">
     </mat-paginator>
 </div>
+
 
 
