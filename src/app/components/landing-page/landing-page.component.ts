@@ -26,13 +26,14 @@ export class LandingPageComponent implements OnInit {
     this.getPokemon();
   }
 
-  public getData(event){
+  public getData(event:PageEvent): PageEvent{
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
     this.getPokemon();
+    return event;
   }
 
-  private getPokemon(): void{
+  private getPokemon(){
     this.showLoading = true;
     this.subscription.add(this.landingPageService.getPokemon(this.pageSize, this.pageSize * this.pageIndex).subscribe(
       (resp: any) => {
