@@ -1,1 +1,26 @@
-<p>landing-page works!</p>
+<mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Search</mat-label>
+    <mat-icon matPrefix>search</mat-icon>
+    <input matInput type="text" [(ngModel)]="search">
+    <button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''">
+    <mat-icon>close</mat-icon>
+    </button>
+</mat-form-field>
+
+<div>
+    
+
+    <div>
+        <app-card *ngFor = "let pokemon of results" [data] = pokemon>
+        </app-card>
+    </div>
+
+    <mat-paginator [length]="length"
+                [pageSize]="pageSize"
+                [pageIndex]="pageIndex"
+                [pageSizeOptions]="pageSizeOptions"
+                (page)="pageEvent = getData($event)">
+    </mat-paginator>
+</div>
+
+

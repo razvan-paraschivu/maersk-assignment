@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,  
+  rootEndpoint: 'https://pokeapi.co/api/v2/pokemon'
 };
