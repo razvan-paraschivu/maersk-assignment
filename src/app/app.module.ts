@@ -11,6 +11,7 @@ import { DemoMaterialModule } from './material.module'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchPipe } from '../app/components/landing-page/search.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchPipe } from '../app/components/landing-page/search.pipe';
     DemoMaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CommonModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

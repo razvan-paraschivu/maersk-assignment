@@ -1,7 +1,28 @@
 .container{
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0rem 1rem;
+    padding: 1rem 1rem;
+}
+
+.controls{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .fields{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 1.5rem;
 }
 
 .card-container{

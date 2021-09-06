@@ -1,1 +1,15 @@
-<p>details-page works!</p>
+<mat-toolbar>
+  
+    <button mat-button (click)="goBackToList()">
+        <mat-icon>arrow_back</mat-icon>
+        Go back
+    </button>
+   
+ </mat-toolbar>
+
+<div *ngIf="showLoading"> 
+    <mat-spinner></mat-spinner>
+</div>
+
+ <div *ngIf="!showLoading" class="container"> {{data | json}}</div>
+

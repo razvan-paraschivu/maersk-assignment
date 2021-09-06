@@ -1,4 +1,4 @@
-<mat-card class="pokemon-card">
+<mat-card class="pokemon-card" (click)="goToDetails(data)">
     <mat-card-title>{{data.name | titlecase }}</mat-card-title>
     <div class="img-container">
         <img mat-card-xl-image [src]="data.sprites.other['official-artwork'].front_default" alt="Image of Pokemon">
