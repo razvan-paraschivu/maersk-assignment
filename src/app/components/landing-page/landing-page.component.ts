@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Subscription } from 'rxjs';
+import { forkJoin, Subscription } from 'rxjs';
 import { LandingPageService } from './landing-page.service'
 
 @Component({
@@ -18,6 +18,7 @@ export class LandingPageComponent implements OnInit {
   private subscription: Subscription = new Subscription();
   pageEvent: PageEvent;
   public results: any;
+  public shownResults: any;
 
   constructor(private landingPageService: LandingPageService
     ) { }
@@ -39,7 +40,14 @@ export class LandingPageComponent implements OnInit {
       (resp: any) => {
         this.length = resp.count;
         this.results = resp.results;
-        this.showLoading = false;
+        let arr = [];
+        this.results.forEach(pokemon => {
+          arr.push(this.landingPageService.getPokemonByName(pokemon.name))
+        });
+        forkJoin(arr).subscribe((arrResp) => {
+          this.shownResults = [...arrResp];
+          this.showLoading = false;
+        });
       },
       error => {
         console.error('CONTROLLER ERROR ' + error.message);

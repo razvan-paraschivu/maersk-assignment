@@ -30,9 +30,9 @@ export class LandingPageService {
   }
 
   // Get pokemon by id
-  public getPokemonById(pokemonID: number) {
+  public getPokemonByName(pokemonName: number) {
     return this._http
-      .get(environment.rootEndpoint + "/" + pokemonID + '/')
+      .get(environment.rootEndpoint + "/" + pokemonName + '/')
       .pipe(
         retry(3), // retry a failed request up to 3 times
         catchError(this.handleError) // then handle the error
